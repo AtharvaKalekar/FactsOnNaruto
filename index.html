@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Facts Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .fact-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-height: 100px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #ff6b6b;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff5252;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Anime Facts Generator</h1>
+        <div class="fact-box">
+            <p id="fact-display">Click a button to get a random fact!</p>
+        </div>
+        <div class="button-container">
+            <button onclick="getRandomFact('naruto')">Naruto Fact</button>
+            <button onclick="getRandomFact('anime')">Anime Fact</button>
+        </div>
+    </div>
+
+    <script>
+        const facts = {
+            naruto: [
+                "Naruto was first published in Weekly Shōnen Jump in 1999",
+                "The series creator, Masashi Kishimoto, was inspired by Dragon Ball",
+                "Naruto's favorite food, ramen, was inspired by Kishimoto's own love for it",
+                // Add more facts from the narutoFacts array as needed
+            ],
+            anime: [
+                "The first Japanese animation, 'Namakura Gatana', was made in 1917",
+                "Spirited Away is the first and only anime film to win an Academy Award",
+                "The term 'anime' comes from the French word 'animé' meaning 'animated'",
+                // Add more facts from the animeFacts array as needed
+            ]
+        };
+
+        function getRandomFact(type) {
+            const factArray = facts[type];
+            const randomIndex = Math.floor(Math.random() * factArray.length);
+            const factDisplay = document.getElementById('fact-display');
+            factDisplay.textContent = factArray[randomIndex];
+        }
+    </script>
+</body>
+</html>
